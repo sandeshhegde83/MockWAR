@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+<bean id="MainController" class="com.mockservlet.controller.ApplicationController"  scope="request">
+        <property name="HelloString" value="HelloWorld" />
+        <property name="processors">
+            <list>
+                <ref bean="ViewProcessor" />
+            </list>
+        </property>
+</bean>
+<bean id="ImportController" class="com.mockservlet.controller.ApplicationController"  scope="request">
+         <property name="processors">
+            <list>
+                <ref bean="ImportProcessor" />
+            </list>
+        </property>
+</bean>
+<bean id="OperationController" class="com.mockservlet.controller.OperationController"  scope="request">         
+</bean>
+<bean id="SaveDefRespController" class="com.mockservlet.controller.SaveDefRespController"  scope="request">         
+</bean>
+<bean id="ViewProcessor" class="com.mockservice.processor.MockServiceProcessor"  scope="request">
+</bean>
+<bean id="ImportProcessor" class="com.mockservice.processor.MockServiceImportProcessor"  scope="request">
+</bean>
+<bean id="CustomRespController" class="com.mockservlet.controller.CustomRespController"  scope="request">         
+</bean>
+<bean id="SaveCustomRespController" class="com.mockservlet.controller.SaveCustomRespController"  scope="request">         
+</bean>
+<bean id="ShowSavedHistory" class="com.mockservlet.controller.ShowSavedHistoryController"  scope="request">         
+</bean>
+        
+        
+</beans>

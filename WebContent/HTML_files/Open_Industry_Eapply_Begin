@@ -1,0 +1,138 @@
+ADO.treatments = {  };
+ADO.treatments['OPEN Application AB'] = {"adoVisitorKey":"UID{CBCF235A}{C19EF1A6}{396D2F84}{00079989}","Application":"New"};
+window.ado_preloadHook = function () {
+    (function () {
+        ADO.treatment = ADO.treatments['OPEN Application AB'];
+        if (window.location.href.indexOf("qwww") != -1) {
+	try {
+		ADO.register(
+			ADO.actions.callback(
+				function () {
+					return window.$;
+				},
+				function () {
+					$(document).ready(
+						function () {
+//debugger;
+							if (ADO.treatments["OPEN Application AB"]["Application"] == "New") { // RWD
+								$("#cardRewards .add-review a").bind("click", function () {
+
+									ADO.storeFactsAndCharacteristics({
+										"OPEN-Application-AB-clicked": "RatingsAndReview"
+									}, null);
+
+								})
+								$(".personalInfo.info-block .saveappcache, .businessInfo.info-block .saveappcache, .verifyInfo.info-block .saveappcache").bind("click",
+									function () {
+										var clickName = "Save and Apply Later";
+										var className = $("#current-step").attr("class").replace("breadcrumb", "").replace(" ", "");
+
+										clickName += (className == "" ? " business-info" : " " + className);
+
+										ADO.storeFactsAndCharacteristics({
+											"OPEN-Application-AB-clicked": clickName
+										}, null);
+
+										setTimeout(function () {
+											ADO.info('$("#_eventId_popupreturn").length = ' + $("#_eventId_popupreturn").length);
+
+											$("#_eventId_popupreturn").bind("click", function () {
+												ADO.storeFactsAndCharacteristics({
+													"OPEN-Application-AB-clicked": "Return to Application"
+												}, null);
+											})
+
+											$("#_eventId_popupApplyLater").bind("click", function () {
+												ADO.storeFactsAndCharacteristics({
+													"OPEN-Application-AB-clicked": "Receive Application Reminder"
+												}, null);
+											})
+
+										}, 3000);
+									}
+								);
+
+								$("#_eventId_businessInfoSubmit").bind("click", function () {
+									ADO.storeFactsAndCharacteristics({
+										"OPEN-Application-AB-clicked": "Business Info Continue"
+									}, null);
+								})
+
+								$("#_eventId_personalInfoSubmit").bind("click", function () {
+									ADO.storeFactsAndCharacteristics({
+										"OPEN-Application-AB-clicked": "Go to Verify"
+									}, null);
+								})
+
+							} else if (ADO.treatments["OPEN Application AB"]["Application"] == "Old") { // OLD
+								if (window.location.pathname.indexOf("member") == -1) { // LONG APP
+									$("#saveApps,.saveBusinessLaterBottom,.savePersonalLaterBottom,.saveVerifyLaterBottom").bind("click", function () {
+
+										ADO.storeFactsAndCharacteristics({
+											"OPEN-Application-AB-clicked": ($(this).attr("id") == "saveApps" ? "saveTop" : $(this).attr("class"))
+										}, null);
+
+
+										setTimeout(function () {
+											ADO.info('$("#_eventId_popupreturn").length = ' + $("#_eventId_popupreturn").length);
+
+											$("#_eventId_popupreturn").bind("click", function () {
+												ADO.storeFactsAndCharacteristics({
+													"OPEN-Application-AB-clicked": "Return to Application"
+												}, null);
+											})
+
+											$("#_eventId_popupApplyLater").bind("click", function () {
+												ADO.storeFactsAndCharacteristics({
+													"OPEN-Application-AB-clicked": "Receive Application Reminder"
+												}, null);
+											})
+
+										}, 3000);
+									})
+
+
+
+									$("#_eventId_businessInfoSubmit").bind("click", function () {
+										ADO.storeFactsAndCharacteristics({
+											"OPEN-Application-AB-clicked": "Business Info Continue"
+										}, null);
+									})
+									$(".button.your-business-bt").bind("click", function () {
+										ADO.storeFactsAndCharacteristics({
+											"OPEN-Application-AB-clicked": "Back to Business Info"
+										}, null);
+									})
+
+									$("#_eventId_personalInfoSubmit").bind("click", function () {
+										ADO.storeFactsAndCharacteristics({
+											"OPEN-Application-AB-clicked": "Go to Verify"
+										}, null);
+									})
+								} else { // SHORT APP
+
+								}
+							}
+						}
+					)
+				}
+			)
+		)
+	} catch (err) {
+		ADO.info(err.message)
+	}
+};
+    })();
+};
+if (window.ado_preloadHook) {
+    ADO.contentHasRun = true;
+    ADO.runSafely(function () {
+        window.ado_preloadHook();
+    });
+};
+ADO.register(function () {
+    ADO.visitorInfo = {  };
+    ADO.visitorInfo.visitorKey = 'UID{CBCF235A}{C19EF1A6}{396D2F84}{00079989}';
+    ADO.visitorInfo.sampledP = true;
+});
+ADO.releaseAllScripts('ADO_VISITOR_INFO="/IKT5zf9FEsEv4084PnHWoE1uAbOGg1uMmMNmxYOnQ1PgnL/xBUCrBmfpWsyCQHYtsm2MliPMp0oPotxM6FDqYLRavGi/+G7bhGJqHDG1oKQtXbN17It3TSe3hZgUCpLgAGT7lQDlmzHOmQWoVZdsTRRp19pUWl3DH19KcuZ3XHLKJ1TEaqdSc8qf7JyjnY0v0t7s9p9bDkMz8whzCLqhprIWSrXZoSEeA5/sRotYpUQ6bbvGztX+N2CTM9RldjRi4xuHVYmnRAMWIKPCOAhj9VI8RWuDj68ZLnRhyJxmQo2KX3/Xi2nl3M+mJ0lozymSyYfP2tcFpkvRjN7AxpNd2e4S6soWJNphz66Z9Cvl8YZcnBhFXsSkdcYQRRZIcfDLcV6T4/8uHwM";Path=/;Comment=This cookie is used solely to track user preferences and will never be used in any privacy intrusive manner.;Expires=Thu, 17 Jul 2014 22:46:40 GMT;Max-Age=7776000', ADO.segmentType);
